@@ -18,21 +18,23 @@ app.use(express.static(__dirname + "/public"));
 // }
 // ));
 
-function isValidSession(req) {
-    if (req.session.authenticated) {
-        return true;
-    }
-    return false;
-}
 
-function sessionValidation(req,res,next) {
-    if (isValidSession(req)) {
-        next();
-    }
-    else {
-        res.redirect('/login');
-    }
-}
+
+// function isValidSession(req) {
+//     if (req.session.authenticated) {
+//         return true;
+//     }
+//     return false;
+// }
+
+// function sessionValidation(req,res,next) {
+//     if (isValidSession(req)) {
+//         next();
+//     }
+//     else {
+//         res.redirect('/login');
+//     }
+// }
 
 app.get('/', (req,res) => {
     res.send("<h1>Placeholder Homepage</h1>");
@@ -43,7 +45,7 @@ app.get('/login', (req,res) => {
 });
 
 app.get('/profile', (req,res) => {
-    
+
 	res.render("profile");
 });
 
